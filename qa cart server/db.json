@@ -1,0 +1,119 @@
+{
+  "courses": [
+    {
+      "title": "istqb",
+      "subscribres": "100",
+      "id": "1",
+      "vedios": [
+        {
+          "number": 1,
+          "title": "vedio 1 istqb"
+        },
+        {
+          "number": 2,
+          "title": "vedio 2 istqb"
+        }
+      ]
+    },
+    {
+      "title": "agile testing",
+      "subscribres": 400,
+      "id": "2",
+      "vedios": [
+        {
+          "number": 1,
+          "title": "vedio 1 istqb"
+        },
+        {
+          "number": 2,
+          "title": "vedio 2 istqb"
+        }
+      ]
+    },
+    {
+      "title": "api testing",
+      "subscribres": 50,
+      "id": "3",
+      "vedios": [
+        {
+          "number": 1,
+          "title": "vedio 1 istqb"
+        },
+        {
+          "number": 2,
+          "title": "vedio 2 istqb"
+        }
+      ]
+    },
+    {
+      "title": "automation testing",
+      "subscribres": 500,
+      "id": "4",
+      "vedios": [
+        {
+          "number": 1,
+          "title": "vedio 1 istqb"
+        },
+        {
+          "number": 2,
+          "title": "vedio 2 istqb"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "postman api",
+      "subscribres": "20",
+      "vedios": [
+        {
+          "number": 1,
+          "title": "vedio 1 istqb"
+        },
+        {
+          "number": 2,
+          "title": "vedio 2 istqb"
+        }
+      ]
+    },
+    {
+      "title": "automation",
+      "subscribres": "50",
+      "id": "6"
+    }
+  ],
+  "students": [
+    {
+      "id": "1",
+      "name": "momen said",
+      "courseid": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "mohammed ebbiary",
+      "courseid": "2"
+    },
+    {
+      "id": "3",
+      "name": "mostafa mahmoad",
+      "courseid": "3"
+    }
+  ],
+  "mentors": [
+    {
+      "id": "1",
+      "name": "asmaa ahmed"
+    },
+    {
+      "id": "2",
+      "name": "asmaa said "
+    },
+    {
+      "id": "4",
+      "name": "Moustafa Ghareeb "
+    }
+  ]
+}

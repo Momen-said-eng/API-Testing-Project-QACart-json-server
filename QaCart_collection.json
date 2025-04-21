@@ -1,0 +1,593 @@
+{
+	"info": {
+		"_postman_id": "09b74c82-fa34-4acf-afcf-e63718870847",
+		"name": "json-server-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "41556327"
+	},
+	"item": [
+		{
+			"name": "course_e2e_case",
+			"item": [
+				{
+					"name": "post_request_to_add_course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the JSON response\r",
+									"var jsonResponse = pm.response.json();\r",
+									"\r",
+									"// Extract the ID from the response\r",
+									"var courseId = jsonResponse.id;\r",
+									"\r",
+									"// Store the ID in a collection variable for later use\r",
+									"pm.collectionVariables.set(\"courseId\", courseId);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"id\": \"7\",  \r\n      \"title\": \"APPIUM\",\r\n      \"subscribres\": \"130\"\r\n       \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_Url}}/courses"
+					},
+					"response": []
+				},
+				{
+					"name": "get_course_by_id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": "{{base_Url}}/courses/{{courseId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "put_to_update_course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"title\": \"Appium with java\",\r\n      \"subscribres\": \"50\"\r\n       \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_Url}}/courses/{{courseId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "get_course_by_id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_Url}}/courses/{{courseId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_Url}}/courses/{{courseId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "get_course_after_delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_Url}}/courses/{{courseId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "students_e2e_case",
+			"item": [
+				{
+					"name": "post_request_to_add_student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonResponse = pm.response.json();\r",
+									"\r",
+									"// Extract the ID from the response\r",
+									"var studentId = jsonResponse.id;\r",
+									"\r",
+									"// Store the ID in a collection variable for later use\r",
+									"pm.collectionVariables.set(\"studentId\", studentId);\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"id\": \"4\",\r\n      \"name\": \"momen4\",\r\n      \"courseid\":[\"1\",\"3\",\"6\"] \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_Url}}/students"
+					},
+					"response": []
+				},
+				{
+					"name": "get_student_by_id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_Url}}/students/{{studentId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "put_to_update_student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \r\n      \"name\": \"edited : momen_4\",\r\n      \"courseid\": [\"2\",\"3\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_Url}}/students/{{studentId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "get_student_by_id _2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_Url}}/students/{{studentId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_Url}}/students/{{studentId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "get_student_by_id_3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_Url}}/students/{{studentId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mentors_e2e_case",
+			"item": [
+				{
+					"name": "add_new_mentor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"jsonresponse=pm.response.json();\r",
+									"mentorId=jsonresponse.id;\r",
+									"pm.collectionVariables.set(\"mentorId\",mentorId);\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n      \"id\": \"5\",\r\n      \"name\": \"Momen said\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_Url}}/mentors"
+					},
+					"response": []
+				},
+				{
+					"name": "get_mentor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_Url}}/mentors/{{mentorId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "update_mentor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n      \r\n      \"name\": \"edited : 'momen said' \"  \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_Url}}/mentors/{{mentorId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "get_mentorP_2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_Url}}/mentors/{{mentorId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_mentor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_Url}}/mentors/{{mentorId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "get_mentor_3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_Url}}/mentors/{{mentorId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get_all_courses",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"olivier@mail.com\",\r\n  \"password\": \"bestPassw0rd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_Url}}/courses"
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_Url}}/students"
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_mentors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_Url}}/mentors"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "courseId",
+			"value": ""
+		},
+		{
+			"key": "studentId",
+			"value": ""
+		},
+		{
+			"key": "mentorId",
+			"value": ""
+		}
+	]
+}

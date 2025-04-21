@@ -1,0 +1,15 @@
+{
+	"id": "d204317c-2ab0-4e18-ac84-6ac015d266e2",
+	"name": "localhostvariable_qa_db",
+	"values": [
+		{
+			"key": "base_Url",
+			"value": "http://localhost:3000",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-03-04T19:31:06.031Z",
+	"_postman_exported_using": "Postman/11.33.2"
+}
